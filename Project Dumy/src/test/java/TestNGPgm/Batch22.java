@@ -72,7 +72,7 @@ public class Batch22 extends BaseClass{
 		jlib.verifyInfo( act_L_Source,L_Source);
 	}
 	@Test (groups= {"regressionTest"})
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	public void createLeadWithIndustryTest14() throws Throwable
 	{
 		// read test script data from Excel file
@@ -101,7 +101,7 @@ public class Batch22 extends BaseClass{
 		String act_L_Source = lfip.getLeadSourceInfo().getText();
 		jlib.verifyInfo( act_L_Source,L_Source);
 	}
-=======
+
 	public void createLeadWithIndustryTest12() throws Throwable
 	{
 		// read test script data from Excel file
@@ -113,7 +113,7 @@ public class Batch22 extends BaseClass{
 	   // navigate to Leads module
 		Homepage hp=new Homepage(driver);
 		hp.getLeadsLink().click();
->>>>>>> branch 'master' of https://github.com/tekpramidSelenium/Framework13.git
+//
 	
 	   // step 3: click on "create Leads" button
 		Leadspage lsp=new Leadspage(driver);
