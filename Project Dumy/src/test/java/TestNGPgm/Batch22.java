@@ -71,6 +71,34 @@ public class Batch22 extends BaseClass{
 		String act_L_Source = lfip.getLeadSourceInfo().getText();
 		jlib.verifyInfo( act_L_Source,L_Source);
 	}
+	@Test (groups= {"regressionTest"})
+	public void createLeadWithIndustryTest12() throws Throwable
+	{
+		// read test script data from Excel file
+		String L_Name=eu.getDatafromExcelfile("Leads", 4, 2)+jlib.getRandomNumber(1000);
+		String C_Name=eu.getDatafromExcelfile("Leads", 4, 3)+jlib.getRandomNumber(1000);
+		String L_Source=eu.getDatafromExcelfile("Leads", 4, 4);
+		String industry=eu.getDatafromExcelfile("Leads", 4, 5);
+					
+	   // navigate to Leads module
+		Homepage hp=new Homepage(driver);
+		hp.getLeadsLink().click();
 	
+	   // step 3: click on "create Leads" button
+		Leadspage lsp=new Leadspage(driver);
+		lsp.getNewLeadsBtn().click();
+			
+	   // enter all details & create new Leads 
+		CreateNewLeadsPage cnlp=new CreateNewLeadsPage(driver);
+		cnlp.createLeadsWithLeadSource(L_Name, C_Name, L_Source, industry);
+			
+	   // verify the industries and Lead source info
+	    LeadsInfopage lfip=new LeadsInfopage(driver);
+		String act_industries = lfip.getIndustryInfo().getText();
+		jlib.verifyInfo( act_industries,industry);
+				
+		String act_L_Source = lfip.getLeadSourceInfo().getText();
+		jlib.verifyInfo( act_L_Source,L_Source);
+	}
 }
 
